@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Ridin\u2019 In The Slow Lane",
+    "type": "Signature Cocktail",
+    "ingredients": [
+      "Elijah Craig",
+      "Zirbenz Stone Pine Liqueur",
+      "Demerara Syrup",
+      "Dashfire J Thomas Bitters"
+    ],
+    "price": 18
+  },
+  {
+    "name": "The Good Life",
+    "type": "Signature Cocktail",
+    "ingredients": [
+      "Casamigos Blanco",
+      "Grand Marnier",
+      "Earl Grey Agave",
+      "Lemon & Lime"
+    ],
+    "price": 17
+  },
+  {
+    "name": "Peace, Love & Agave",
+    "type": "Signature Cocktail",
+    "ingredients": [
+      "Teremana Reposado",
+      "Dos Hombres Mezcal",
+      "Ginger Beer",
+      "Mint"
+    ],
+    "price": 18
+  },
+  {
+    "name": "Jamaican Express - Oh",
+    "type": "Signature Cocktail",
+    "ingredients": [
+      "Myers\u2019s Dark Rum",
+      "Remy Martin VSOP",
+      "Banana Liqueur",
+      "Espresso"
+    ],
+    "price": 17
+  },
+  {
+    "name": "Sparkling Cucumber Gimlet",
+    "type": "Signature Cocktail",
+    "ingredients": [
+      "Hangar 1 Vodka",
+      "Caribbean Pineapple",
+      "Cucumber",
+      "Tonic"
+    ],
+    "price": 17
+  },
+  {
+    "name": "Bud Light",
+    "type": "Bottled Beer",
+    "price": 7
+  },
+  {
+    "name": "LandShark",
+    "type": "Bottled Beer",
+    "price": 7
+  },
+  {
+    "name": "Stella Artois",
+    "type": "Bottled Beer",
+    "price": 9
+  },
+  {
+    "name": "Palm City Blonde Bomber",
+    "type": "Draft Beer",
+    "price_14oz": 8,
+    "price_20oz": 10
+  }
+]

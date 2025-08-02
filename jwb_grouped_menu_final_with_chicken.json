@@ -1,0 +1,166 @@
+{
+  "Appetizers": [
+    {
+      "name": "Provoleta Cheese",
+      "price": 18
+    },
+    {
+      "name": "Short Rib Empanada",
+      "price": 22
+    },
+    {
+      "name": "Wagyu Meatballs",
+      "price": 22
+    },
+    {
+      "name": "Fried Calamari",
+      "price": 20
+    },
+    {
+      "name": "Tuna Tartare",
+      "price": 26
+    },
+    {
+      "name": "Glazed Brussels Sprouts",
+      "price": 2
+    },
+    {
+      "name": "Mussels",
+      "price": 18
+    },
+    {
+      "name": "Grilled Octopus",
+      "price": 22
+    },
+    {
+      "name": "Ceviche",
+      "price": 22
+    }
+  ],
+  "Soups & Salads": [
+    {
+      "name": "Caesar Salad",
+      "price": 16
+    },
+    {
+      "name": "Radicchio & Arugula Salad",
+      "price": 20
+    },
+    {
+      "name": "Buratta Salad",
+      "price": 20
+    },
+    {
+      "name": "Thai Coconut Chicken Soup",
+      "price": 12
+    }
+  ],
+  "Main Selections": [
+    {
+      "name": "Ancho-Rubbed Pork Chop",
+      "price": 36
+    },
+    {
+      "name": "Jwb Burger",
+      "price": 24
+    },
+    {
+      "name": "Short Rib Pasta",
+      "price": 38
+    },
+    {
+      "name": "Filet Mignon",
+      "price": 56
+    },
+    {
+      "name": "Lomo Saltado",
+      "price": 38
+    },
+    {
+      "name": "Ribeye",
+      "price": 59
+    },
+    {
+      "name": "Roasted Cauliflower Cutlet",
+      "price": 32
+    },
+    {
+      "name": "Sicilian Sausage Rigatoni",
+      "price": 31
+    },
+    {
+      "name": "Seafood Stew",
+      "price": 36
+    },
+    {
+      "name": "Paella",
+      "price": 38
+    },
+    {
+      "name": "Coconut Curry Shrimp",
+      "price": 34
+    },
+    {
+      "name": "Chicken Au Jus",
+      "price": 33
+    }
+  ],
+  "Enhancements": [
+    {
+      "name": "Bone Marrow Butter",
+      "price": 7
+    },
+    {
+      "name": "Chimichurri",
+      "price": 7
+    },
+    {
+      "name": "Cognac Peppercorn Sauce",
+      "price": 7
+    },
+    {
+      "name": "Bearnaise Sauce",
+      "price": 7
+    }
+  ],
+  "Sides": [
+    {
+      "name": "Au Gratin Potatoes",
+      "price": 7
+    },
+    {
+      "name": "Grilled Broccolini",
+      "price": 7
+    },
+    {
+      "name": "Green Beans",
+      "price": 7
+    },
+    {
+      "name": "Fingerling Potatoes",
+      "price": 7
+    },
+    {
+      "name": "Mashed Potatoes",
+      "price": 7
+    },
+    {
+      "name": "Truffle Fries",
+      "price": 7
+    },
+    {
+      "name": "Asparagus",
+      "price": 7
+    }
+  ],
+  "Add Protein": [
+    {
+      "name": "Local Gulf Shrimp",
+      "price": 12
+    },
+    {
+      "name": "Grilled Chicken",
+      "price": 10
+    }
+  ]
+}

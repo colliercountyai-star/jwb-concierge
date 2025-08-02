@@ -1,0 +1,74 @@
+[
+  {
+    "name": "La Marca Prosecco",
+    "type": "Sparkling",
+    "region": "Italy",
+    "price_glass": 14,
+    "price_bottle": 45
+  },
+  {
+    "name": "Domaine Chandon Brut",
+    "type": "Sparkling",
+    "region": "Napa Valley",
+    "price_bottle": 85
+  },
+  {
+    "name": "Taittinger Brut Reserve",
+    "type": "Sparkling",
+    "region": "Reims, France",
+    "price_bottle": 165
+  },
+  {
+    "name": "Moet & Chandon Imperial Brut",
+    "type": "Sparkling",
+    "region": "Epernay, France",
+    "price_bottle": 175
+  },
+  {
+    "name": "Gosset Grand Reserve",
+    "type": "Sparkling",
+    "region": "Champagne, France",
+    "price_bottle": 145
+  },
+  {
+    "name": "Capasoldo Pinot Grigio",
+    "type": "White",
+    "region": "Della Venezia, Italy",
+    "price_glass": 12,
+    "price_bottle": 48
+  },
+  {
+    "name": "Frenzy Sauvignon Blanc",
+    "type": "White",
+    "region": "New Zealand",
+    "price_bottle": 52
+  },
+  {
+    "name": "Mer Soleil Chardonnay",
+    "type": "White",
+    "region": "Sonoma Coast, CA",
+    "price_glass": 15,
+    "price_bottle": 60
+  },
+  {
+    "name": "Argyle Bloom House Pinot Noir",
+    "type": "Red",
+    "region": "Willamette Valley, Oregon",
+    "price_glass": 17,
+    "price_bottle": 68
+  },
+  {
+    "name": "Bonanza Cabernet Sauvignon",
+    "type": "Cabernet Sauvignon",
+    "region": "California",
+    "price_glass": 15,
+    "price_bottle": 60
+  },
+  {
+    "name": "Caymus Cabernet",
+    "type": "Cabernet Sauvignon",
+    "region": "California",
+    "price_glass": 27,
+    "price_bottle": 108
+  }
+]
