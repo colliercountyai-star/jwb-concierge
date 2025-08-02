@@ -17,7 +17,11 @@ with open("beverage_menu.json") as f:
 with open("prompt_template.txt") as f:
     system_prompt = f.read()
 
-client = OpenAI(api_key="sk-your-key-here")
+import os
+from openai import OpenAI
+
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 # Prepare menu context
 food_context = []
