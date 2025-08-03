@@ -91,10 +91,21 @@ for msg in st.session_state.chat_history:
     st.chat_message(msg["role"]).markdown(msg["content"])
 
 # Input from user
-if prompt := st.chat_input(
-    st.session_state.first_greeting if len(st.session_state.chat_history) == 0 
+if prompt = st.chat_input(
+    st.session_state.first_greeting if len(st.session_state.chat_history) == 0
     else random.choice(follow_up_prompts)
-):
+)
+
+# 🔥 Force focus back into the input box
+st.components.v1.html(
+    """<script>
+        const input = window.parent.document.querySelector('textarea');
+        if (input) input.focus();
+    </script>""",
+    height=0,
+)
+
+if prompt:
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
 
