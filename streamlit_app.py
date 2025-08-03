@@ -71,16 +71,14 @@ def extract_protein(text):
             return protein
     return "seafood"
 
-def chat_with_ai(history):
-    ...
-
+def chat_with_ai(message, context):
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": f"{message}\nFood Context: {context}"}
     ]
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=messages
+        messages=history
     )
     return response.choices[0].message.content
 
@@ -97,12 +95,7 @@ for msg in st.session_state.chat_history:
     st.chat_message(msg["role"]).markdown(msg["content"])
 
 # Input from user
-prompt = st.chat_input(
-    st.session_state.first_greeting if len(st.session_state.chat_history) == 0
-    else random.choice(follow_up_prompts)
-)
-
-if prompt:
+if prompt := st.chat_input(st.session_state.first_greeting if len(st.session_state.chat_history) == 0 else random.choice(follow_up_prompts)):
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
 
@@ -111,9 +104,8 @@ if prompt:
 
     valid_history = [
     msg for msg in st.session_state.chat_history
-    if isinstance(msg, dict) and "role" in msg and "content" in msg
+    if isinstance(msg, dict) and 'role' in msg and 'content' in msg
 ]
 ai_reply = chat_with_ai(valid_history)
-
     st.chat_message("assistant").markdown(ai_reply)
     st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
