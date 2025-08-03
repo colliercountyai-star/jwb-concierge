@@ -96,16 +96,8 @@ if prompt = st.chat_input(
     else random.choice(follow_up_prompts)
 )
 
-# Optional: Autofocus script
-st.components.v1.html(
-    """<script>
-        const input = window.parent.document.querySelector('textarea');
-        if (input) input.focus();
-    </script>""",
-    height=0,
-)
-
 if prompt:
+    # your code here
     ...
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
