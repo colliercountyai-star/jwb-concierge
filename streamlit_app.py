@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import random
 import re
+import os
 from openai import OpenAI
 
 # Load data
@@ -17,11 +18,7 @@ with open("beverage_menu.json") as f:
 with open("prompt_template.txt") as f:
     system_prompt = f.read()
 
-import os
-from openai import OpenAI
-
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-
 
 # Prepare menu context
 food_context = []
@@ -52,7 +49,6 @@ follow_up_prompts = [
     "I’m here for you. More recs? Just ask."
 ]
 
-# Utility
 def extract_allergies(text):
     allergies = []
     known_allergens = ["gluten", "dairy", "peanut", "tree nut", "nuts"]
@@ -82,29 +78,46 @@ def chat_with_ai(history):
 st.set_page_config(page_title="JWB Grill Concierge", page_icon="🍤", layout="centered")
 
 st.title("🍽️ JWB Grill Concierge")
+
+# Initialize session state
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
     st.session_state.first_greeting = random.choice(greeting_prompts)
 
-# Show chat history
+# Display history
 for msg in st.session_state.chat_history:
     st.chat_message(msg["role"]).markdown(msg["content"])
 
-if prompt := st.chat_input(
+# Autofocus enhancement
+st.components.v1.html(
+    """<script>
+        const input = window.parent.document.querySelector('textarea');
+        if (input) input.focus();
+    </script>""",
+    height=0,
+)
+
+# Handle input
+prompt = st.chat_input(
     st.session_state.first_greeting if len(st.session_state.chat_history) == 0 
     else random.choice(follow_up_prompts)
-):
+)
+
+if prompt:
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
 
-    detected_allergies = extract_allergies(prompt)
-    detected_protein = extract_protein(prompt)
+    # Inject system prompt if not already present
+    if not any(msg["role"] == "system" for msg in st.session_state.chat_history):
+        st.session_state.chat_history.insert(
+            0, {"role": "system", "content": f"{system_prompt}\n\n{combined_context}"}
+        )
 
     valid_history = [
         msg for msg in st.session_state.chat_history
-        if isinstance(msg, dict) and 'role' in msg and 'content' in msg
+        if isinstance(msg, dict) and "role" in msg and "content" in msg
     ]
-    ai_reply = chat_with_ai(valid_history)
 
+    ai_reply = chat_with_ai(valid_history)
     st.chat_message("assistant").markdown(ai_reply)
     st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
