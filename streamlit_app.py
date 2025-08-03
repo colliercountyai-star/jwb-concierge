@@ -92,11 +92,11 @@ for msg in st.session_state.chat_history:
 
 # Input from user
 if prompt = st.chat_input(
-    st.session_state.first_greeting if len(st.session_state.chat_history) == 0
+    st.session_state.first_greeting if len(st.session_state.chat_history) == 0 
     else random.choice(follow_up_prompts)
 )
 
-# 🔥 Force focus back into the input box
+# Optional: Autofocus script
 st.components.v1.html(
     """<script>
         const input = window.parent.document.querySelector('textarea');
@@ -106,6 +106,7 @@ st.components.v1.html(
 )
 
 if prompt:
+    ...
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
 
