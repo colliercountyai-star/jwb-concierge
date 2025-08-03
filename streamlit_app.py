@@ -71,7 +71,7 @@ def extract_protein(text):
             return protein
     return "seafood"
 
-def chat_with_ai(message, context):
+def chat_with_ai(history):
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": f"{message}\nFood Context: {context}"}
