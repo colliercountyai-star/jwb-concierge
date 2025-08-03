@@ -71,7 +71,9 @@ def extract_protein(text):
             return protein
     return "seafood"
 
-def chat_with_ai(message, context):
+def chat_with_ai(history):
+    ...
+
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": f"{message}\nFood Context: {context}"}
@@ -107,6 +109,11 @@ if prompt:
     detected_allergies = extract_allergies(prompt)
     detected_protein = extract_protein(prompt)
 
-    ai_reply = chat_with_ai(prompt, combined_context)
+    valid_history = [
+    msg for msg in st.session_state.chat_history
+    if isinstance(msg, dict) and "role" in msg and "content" in msg
+]
+ai_reply = chat_with_ai(valid_history)
+
     st.chat_message("assistant").markdown(ai_reply)
     st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
