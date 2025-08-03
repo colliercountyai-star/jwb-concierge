@@ -78,7 +78,7 @@ def chat_with_ai(message, context):
     ]
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=messages
+        messages=history
     )
     return response.choices[0].message.content
 
@@ -102,6 +102,9 @@ if prompt := st.chat_input(st.session_state.first_greeting if len(st.session_sta
     detected_allergies = extract_allergies(prompt)
     detected_protein = extract_protein(prompt)
 
-    ai_reply = chat_with_ai(prompt, combined_context)
+    # Inject system prompt and context once
+if len(st.session_state.chat_history) == 1:
+    st.session_state.chat_history.insert(0, {"role": "system", "content": f"{system_prompt}\n\n{combined_context}"})
+ai_reply = chat_with_ai(st.session_state.chat_history)
     st.chat_message("assistant").markdown(ai_reply)
     st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
