@@ -105,20 +105,10 @@ if prompt := st.chat_input(st.session_state.first_greeting if len(st.session_sta
     # Inject system prompt and context once
 if len(st.session_state.chat_history) == 1:
     st.session_state.chat_history.insert(0, {"role": "system", "content": f"{system_prompt}\n\n{combined_context}"})
-ai_reply = chat_with_ai(st.session_state.chat_history)
- # Inside the block that checks if the user's entered a message
-if prompt:
-    st.chat_message("user").markdown(prompt)
-
-    # Inject system message once
-    if len(st.session_state.chat_history) == 1:
-        st.session_state.chat_history.insert(
-            0, {"role": "system", "content": f"{system_prompt}\n\n{combined_context}"}
-        )
-
-    st.session_state.chat_history.append({"role": "user", "content": prompt})
-    ai_reply = chat_with_ai(st.session_state.chat_history)
-    st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
-
-    # ✅ THIS LINE SHOULD BE HERE with the same indentation
+valid_history = [
+    msg for msg in st.session_state.chat_history
+    if isinstance(msg, dict) and 'role' in msg and 'content' in msg
+]
+ai_reply = chat_with_ai(valid_history)
     st.chat_message("assistant").markdown(ai_reply)
+    st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
