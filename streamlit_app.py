@@ -90,15 +90,10 @@ if "chat_history" not in st.session_state:
 for msg in st.session_state.chat_history:
     st.chat_message(msg["role"]).markdown(msg["content"])
 
-# Input from user
-if prompt = st.chat_input(
+if prompt := st.chat_input(
     st.session_state.first_greeting if len(st.session_state.chat_history) == 0 
     else random.choice(follow_up_prompts)
-)
-
-if prompt:
-    # your code here
-    ...
+):
     st.chat_message("user").markdown(prompt)
     st.session_state.chat_history.append({"role": "user", "content": prompt})
 
@@ -113,4 +108,3 @@ if prompt:
 
     st.chat_message("assistant").markdown(ai_reply)
     st.session_state.chat_history.append({"role": "assistant", "content": ai_reply})
-
